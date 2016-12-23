@@ -2,20 +2,26 @@
 <html>
 <body>
 <h1>NXFWEB</h1>
+<script>
+	function main()
+	{
+		localStorage.setItem("count", 0)
+	}
+</script>
 <button type="button", name="button", onclick="func()">get out cunt</button>
 <script type="text/javascript">
 	
 	function func()
 	{
 		alert("oi cunt dont u fucken dare to click me again");
-		var count = 0;
-		++count;
-		if(count == 2)
+		var oldcount = document.getElementById("result").innerHTML = localStorage.getItem("count");
+		var newcount = oldcount + 1;
+		if(newcount == 2)
 		{
 			alert("y u do dis?");
-			++count;
+			newcount = oldcount + 1;
 		}
-		if(count == 4)
+		if(newcount == 4)
 		{
 			alert("k, this is it.");
 			while(true)
