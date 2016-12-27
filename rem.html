@@ -3,17 +3,20 @@
 <html>
 
 <?php
-echo "Rem pics:";
-$path = "rem/";
-$dh = opendir($path);
-$i=1;
-while (($file = readdir($dh)) !== false) {
-    if($file != "." && $file != ".." && $file != "index.php" && $file != ".htaccess" && $file != "error_log" && $file != "cgi-bin") {
-        echo "<a href='$path/$file'>$file</a><br /><br />";
-        $i++;
-    }
-}
-closedir($dh);
+$dir = "rem/"; // folder, e.g.: 'images/', same dir as script use a '.'
+$myDirectory = opendir($dir);
+while($entryName = readdir($myDirectory)) { $dirArray[] = $entryName; } // get files
+closedir($myDirectory); // close directory
+
+sort($dirArray); // sort 'em
+$indexCount	= count($dirArray); // count elements in array
+
+// loop through the array of files and print them all
+for($index=0; $index < $indexCount; $index++) {
+	if (substr("$dirArray[$index]", 0, 1) != ".") { // don't list hidden files
+		if (strstr("$dirArray[$index]", ".")==".jpg" || strstr("$dirArray[$index]", ".")==".gif") { // get image file types
+			print "n.push(escape('$dirArray[$index]')); ";
+}}}
 ?>
 
 <body>
