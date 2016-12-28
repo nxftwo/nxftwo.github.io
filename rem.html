@@ -46,14 +46,6 @@
 	<br>
 	<a href="rem/20.png">20</a>
 
-	<h1>This section is for testing purposes</h1>
-
-	{% for image in site.static_files %}
-	{% if image.path contains 'rem' %}
-	    <img src="{{site.baseurl}}{{image.path}}">
-	{% endif %}
-	{% endfor %}
-
 
 </body>
 </html>
